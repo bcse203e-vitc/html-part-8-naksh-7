@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q5</title>
+    <script>
+        function count1(){
+            let x = document.getElementById(t1).value.trim();
+            let str = x.split(" ");
+            let y = document.getElementById("count");
+            y.innerHTML = "Word Count: "+ str.length;
+        }
+    </script>
+</head>
+<body>
+    <label for="t1">Enter for word count</label>
+    <br>
+    <textarea name="text1" id="t1" oninput="count1()" style="height: 200px; width: 300px;">
+
+    </textarea>
+    <div id="count">
+        Word Count: 0
+    </div>
+</body>
+</html>

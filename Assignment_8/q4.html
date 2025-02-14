@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4</title>
+    <script>
+        function visible(event){
+            event.preventDefault();
+            var x = document.getElementById("password1");
+            if(x.type=="password"){
+                x.type = "text";
+            }
+            else{
+                x.type = "password";
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="password1">Password</label>
+    <input type="password" id="password1" name="password1" required>
+    <button id="vis" onclick="visible(event)">Visible</button>
+</body>
+</html>

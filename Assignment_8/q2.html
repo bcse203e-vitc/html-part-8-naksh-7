@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q2</title>
+    <script>
+        function val(event){
+            event.preventDefault();
+            var a = document.getElementById("ans");
+            var x = document.getElementById("name1").value;
+            var y = document.getElementById("email1").value;
+            var z = document.getElementById("password1").value;
+            if(x.length==0){
+                a.innerHTML = "Name cannot be empty"
+                return;
+            }
+            if(emailval()==0){
+                a.innerHTML = "Email is invalid"
+                return;
+            }
+            if(z.length<8|| !containsNumber(z) || !containsCapitalLetter(z)){
+                a.innerHTML = "Password is invalid"
+                return;
+            }
+            a.innerHTML = "All inputs are valid";
+        }
+        function emailval(){
+            var email = document.getElementById("email1").value;
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                return 0;
+            }
+            return 1;
+        }
+        function containsCapitalLetter(str) {
+            const capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            let found =false;
+            for (let i = 0; i < str.length; i++) {
+                if (capitalLetters.includes(str[i])) {
+                    found =true;
+                }
+            }
+            return found;
+        }
+        function containsNumber(str) {
+            const numbers = "1234567890";
+            let found= false;
+            for (let i = 0; i < str.length; i++) {
+                if (numbers.includes(str[i])) {
+                    found = true
+                }
+            }
+            return found;
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <h1>Login</h1>
+        <label for="name1">Name</label>
+        <input type="text" id="name1" name="name1">
+        <label for="email1">Email</label>
+        <input type="email" id="email1" name="email1" required>
+        <label for="password1">Password</label>
+        <input type="password" id="password1" name="password1" required>
+        <button id="sub1" onclick="val(event)">Submit</button>
+    </form>
+    <div id="ans"></div>
+</body>
+</html>
