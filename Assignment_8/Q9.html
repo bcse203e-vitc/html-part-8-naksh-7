@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q9</title>
+    <script>
+        function generate(){
+            let inp = document.getElementById('input').value;
+            let h = Math.floor(inp/3600);
+            let m = Math.floor((inp%3600)/60);
+            let s = inp%60;
+            update(h,m,s);
+            function timer1(){
+                if(s>0){
+                    s--;
+                }
+                else if(m>0){
+                    m--;
+                    s=59;
+                }
+                else if(h>0){
+                    h--;
+                    m=59;
+                    s=59;
+                }
+                else{
+                    clearInterval(timer1);
+                }
+                update(h,m,s);
+            }
+            setInterval(timer1, 1000);
+        }
+        function update(h,m,s){
+            h = String(h).padStart(2, '0');
+            m = String(m).padStart(2, '0');
+            s = String(s).padStart(2, '0');
+            document.getElementById('timer').textContent = h + ":" + m + ":" + s;
+        }
+    </script>
+</head>
+<body>
+    <label for="input">Input: </label>
+    <input type="number" id="input" placeholder="Enter time in seconds">
+    <button id="submit" onclick="generate()">Submit</button>
+    <div id="timer"></div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q3</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+
+        }
+        
+        .imgcontainer{
+            position: relative;
+            height: 500px;
+            width:270px;
+            overflow: hidden;
+        }
+        #carousel{
+            display: flex;
+            width:max-content;
+            transition: transform 0.5s;
+        }
+        img{
+            height: 500px;
+            width:270px;
+            
+        }
+        
+        
+    </style>
+    
+</head>
+<body>
+    <div class="btns">
+        <button id="pr1" onclick="prev()">Previous</button>
+    </div>
+    <div class="imgcontainer">
+        <div  id="carousel">
+            <img src="pexels-anete-lusina-19570337.jpg" alt="Image 1">
+            <img src="pexels-nikola-kojevic-1608684723-30285925.jpg" alt="Image 2">
+            <img src="pexels-nikola-kojevic-1608684723-30369434.jpg" alt="Image 3">
+        </div>
+    </div>
+    <div class="btns">
+        <button id="nx1" onclick="next()">Next</button>
+    </div>
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll('#carousel img');
+        const n = slides.length;
+        let run;
+        function next() {
+            index = (index + 1) % n;
+            update();
+            resetinterval();
+        }
+
+        function prev() {
+            index = (index - 1 + n) % n;
+            update();
+            resetinterval();
+        }
+        function update(){
+            document.getElementById('carousel').style.transform = 'translateX('+(-index*270)+'px)';
+        }
+        function interval(){
+            run = setInterval(next, 3000);
+        }
+        function resetinterval(){
+            clearInterval(run);
+            interval();
+        }
+        interval();
+    </script>
+</body>
+</html>

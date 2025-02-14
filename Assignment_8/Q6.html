@@ -1,0 +1,25 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Q6</title>
+</head>  
+<body> 
+    <h1>Digital Clock</h1> 
+    <div id="time" style="font-size: larger;"></div>  
+    <script>  
+        function time() {  
+            let date = new Date();  
+            // Convert numbers to strings before using padStart  
+            let h = String(date.getHours()).padStart(2, '0');  
+            let m = String(date.getMinutes()).padStart(2, '0');  
+            let s = String(date.getSeconds()).padStart(2, '0');  
+            let currentTime = h + ":" + m + ":" + s;  
+            document.getElementById('time').textContent = currentTime;  
+        }  
+        time(); 
+        setInterval(time, 1000);  
+    </script> 
+</body>  
+</html>
