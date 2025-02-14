@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q8</title>
+    <script>
+        function check(str){
+            let x = parseInt(str);
+            let r1 = Math.floor(Math.random()*3);
+            let pc = document.getElementById("comp");
+            let z = document.getElementById("result");
+            if(r1==0){
+                pc.innerHTML = "Computer Choice: Rock"
+                if(x==0){
+                    z.innerHTML = "It's a tie!";
+                }
+                else if(x==1){
+                    z.innerHTML = "You Win";
+                }
+                else{
+                    z.innerHTML = "Computer Wins";
+                }
+            }
+            else if(r1==1){
+                pc.innerHTML = "Computer Choice: Paper"
+                if(x==0){
+                    z.innerHTML = "Computer Wins";
+                }
+                else if(x==1){
+                    z.innerHTML = "It's a tie!";
+                }
+                else{
+                    z.innerHTML = "You Win";
+                }
+            }
+            else{
+                pc.innerHTML = "Computer Choice: Scissors"
+                if(x==0){
+                    z.innerHTML = "You Win";
+                }
+                else if(x==1){
+                    z.innerHTML = "Computer Wins";
+                }
+                else{
+                    z.innerHTML = "It's a tie!";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="rock" onclick="check('0')">Rock</button>
+    <button id="paper" onclick="check('2')">Paper</button>
+    <button id="scissor" onclick="check('3')">Scissor</button>
+    <div id="comp">Computer Choice: -</div>
+    <div id="result"></div>
+</body>
+</html>
