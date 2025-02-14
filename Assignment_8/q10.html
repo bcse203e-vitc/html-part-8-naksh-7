@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Increase(){
+            var x = document.getElementById("para");
+            var y = window.getComputedStyle(x,null).getPropertyValue("font-size");
+            var z = parseFloat(y);
+            x.style.fontSize = z+1 + "px";
+        }
+        function Decrease(){
+            var x = document.getElementById("para");
+            var y = window.getComputedStyle(x,null).getPropertyValue("font-size");
+            var z = parseFloat(y);
+            x.style.fontSize = z-1 +"px";
+        }
+    </script>
+</head>
+<body>
+    <div id="para">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita odio, vel at incidunt rerum quos tempora nobis? Modi excepturi tenetur dicta id odio consequatur nobis, provident officia? Provident aliquid qui explicabo nemo asperiores dolore illum nobis autem recusandae, expedita veritatis officia eius labore sit minus!
+    </div>
+    <button id="inc" onclick="Increase()">↑</button>
+    <button id="inc" onclick="Decrease()">↓</button>
+</body>
+</html>
